@@ -1,0 +1,11 @@
+# environment
+.venv
+
+# cache
+*.pyc
+
+# editor settings
+.vscode
+
+# todo
+*.todo
