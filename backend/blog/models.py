@@ -1,3 +1,16 @@
 from django.db import models
 
-# Create your models here.
+from django.contrib.auth.models import User
+
+
+class Post(models.Model):
+    title = models.CharField('заголовок', max_length=255)
+    content = models.TextField('текст')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField('дата и время создания',
+                                      auto_now_add=True)
+    last_modified = models.DateTimeField('последнее обновление', auto_now=True)
+    rating = models.IntegerField('рейтинг', default=0)
+
+    class Meta:
+        db_table = 'posts'
