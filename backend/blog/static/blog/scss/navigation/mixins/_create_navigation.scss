@@ -1,0 +1,46 @@
+@mixin createNavigation($color, $top: false, $bottom: false) {
+    position: absolute;
+    @if $top {
+        top: $top;
+    } @else if $bottom {
+        bottom: $bottom;
+    }
+    left: 0;
+    width: 100%;
+
+    & li {
+        position: relative;
+        width: 100%;
+
+        & a {
+            position: relative;
+            display: flex;
+            width: 100%;
+            color: $color;
+            text-decoration: none;
+
+            & .icon {
+                position: relative;
+                display: block;
+                min-width: 60px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+
+                & .fa {
+                    font-size: 24px;
+                }
+            }
+
+            & .title {
+                position: relative;
+                display: block;
+                padding: 0 10px;
+                height: 60px;
+                line-height: 60px;
+                text-align: start;
+                white-space: nowrap;
+            }
+        }
+    }
+}

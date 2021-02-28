@@ -1,0 +1,48 @@
+@import './mixins/create_navigation';
+
+.navigation {
+
+    position: fixed;
+    width: 60px;
+    height: 100%;
+    background: #5433FF;
+    transition: 0.5s;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-right-color: #5433FF;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+    &:hover {
+        width: 225px;
+        border-right-style: solid;
+        border-right-width: 40px;
+        border-right-color: #5433FF;
+        background: white;
+    }
+
+    & .navigation--main {
+        @include createNavigation(#d90429, $top: 0);
+    }
+
+    & .navigation--account {
+        @include createNavigation(#d90429, $top: 240px);
+    }
+
+    & .navigation--contacts {
+        @include createNavigation(#d90429, $bottom: 0);
+    }
+
+    & li:hover {
+        transition: 0.2s;
+        background-color: #5433FF;
+
+        & a {
+            color: #fff;
+        }
+    }
+}
