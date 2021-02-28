@@ -1,0 +1,212 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:active {
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/roboto-bold/roboto-bold.woff2") format("woff2"), url("../assets/fonts/roboto-bold/roboto-bold.woff") format("woff"), url("../assets/fonts/roboto-bold/roboto-bold.ttf") format("truetype"), url("../assets/fonts/roboto-bold/roboto-bold.eot") format("embedded-opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/roboto-regular/roboto-regular.woff2") format("woff2"), url("../assets/fonts/roboto-regular/roboto-regular.woff") format("woff"), url("../assets/fonts/roboto-regular/roboto-regular.ttf") format("truetype"), url("../assets/fonts/roboto-regular/roboto-regular.eot") format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navigation {
+  position: fixed;
+  width: 60px;
+  height: 100%;
+  background: #5433FF;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  overflow: hidden;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #5433FF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.navigation:hover {
+  width: 225px;
+  border-right-style: solid;
+  border-right-width: 40px;
+  border-right-color: #5433FF;
+  background: white;
+}
+
+.navigation .navigation--main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation .navigation--main li {
+  position: relative;
+  width: 100%;
+}
+
+.navigation .navigation--main li a {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  color: #d90429;
+  text-decoration: none;
+}
+
+.navigation .navigation--main li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.navigation .navigation--main li a .icon .fa {
+  font-size: 24px;
+}
+
+.navigation .navigation--main li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation .navigation--account {
+  position: absolute;
+  top: 240px;
+  left: 0;
+  width: 100%;
+}
+
+.navigation .navigation--account li {
+  position: relative;
+  width: 100%;
+}
+
+.navigation .navigation--account li a {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  color: #d90429;
+  text-decoration: none;
+}
+
+.navigation .navigation--account li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.navigation .navigation--account li a .icon .fa {
+  font-size: 24px;
+}
+
+.navigation .navigation--account li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation .navigation--contacts {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation .navigation--contacts li {
+  position: relative;
+  width: 100%;
+}
+
+.navigation .navigation--contacts li a {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  color: #d90429;
+  text-decoration: none;
+}
+
+.navigation .navigation--contacts li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.navigation .navigation--contacts li a .icon .fa {
+  font-size: 24px;
+}
+
+.navigation .navigation--contacts li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation li:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: #5433FF;
+}
+
+.navigation li:hover a {
+  color: #fff;
+}
