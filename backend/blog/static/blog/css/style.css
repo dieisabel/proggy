@@ -290,3 +290,51 @@ a:visited {
   font-family: 'Roboto', sans-serif;
   color: white;
 }
+
+.profile {
+  margin: 0 auto;
+  max-width: 1100px;
+  min-height: 500px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile .left {
+  width: 30%;
+  background-color: black;
+}
+
+.profile .left .avatar {
+  border-radius: 50%;
+  display: block;
+  margin: 50px auto;
+}
+
+.profile .right {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.profile .right .info--list {
+  list-style-type: none;
+  padding: 100px;
+}
+
+.profile .right .info--list .info__element {
+  margin: 20px 0px;
+}
+
+.profile .right .info--list .info__element:first-child {
+  margin-bottom: 20px;
+}
+
+.profile .right .info--list .info__blogs {
+  list-style-type: none;
+}
+
+.profile .right .info--list .info__blogs .blog {
+  margin: 20px 0px;
+}
