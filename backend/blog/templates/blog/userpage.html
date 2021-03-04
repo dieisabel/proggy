@@ -1,0 +1,51 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+
+<div class="profile">
+
+    <div class="left">
+        <img src="https://fakeimg.pl/300x300/ff0000/" alt="user avatar" class="avatar">
+    </div>
+
+    <div class="right">
+        <ul class="info--list">
+            <li class="info__element">
+                <span>Username: Lavinchi</span>
+            </li>
+            <li class="info__element">
+                <span>Name: Kostya</span>
+            </li>
+            <li class="info__element">
+                <span>Surname: Kad</span>
+            </li>
+            <li class="info__element">
+                <span>E-mail: sometestmail@test.com</span>
+            </li>
+            <li class="info__element">
+                <span>Birthday: 01.01.1990</span>
+            </li>
+            <li class="info__element">
+                <span>Status: admin</span>
+            </li>
+
+            <ul class="info__blogs">
+                <span>
+                    Blogs
+                </span>
+                <li class="blog">
+                    <a href="#">Python blog</a>
+                </li>
+                <li class="blog">
+                    <a href="#">Scala blog</a>
+                </li>
+                <li class="blog">
+                    <a href="#">Roblox blog</a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+
+</div>
+
+{% endblock content %}
