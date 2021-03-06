@@ -6,4 +6,6 @@
     grid-auto-rows: minmax(300px, auto);
     gap: 50px;
     font-family: 'Roboto', sans-serif;
+
+    @import 'card';
 }
