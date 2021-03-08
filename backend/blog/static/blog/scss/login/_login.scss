@@ -1,0 +1,12 @@
+.login {
+    width: 600px;
+    height: 500px;
+    margin: auto auto;
+    border: 10px solid black;
+    padding: 50px;
+
+    & form {
+        display: flex;
+        flex-direction: column;
+    }
+}
