@@ -292,3 +292,15 @@ a:visited {
   display: flex;
   flex-direction: column;
 }
+
+.login {
+  width: 600px;
+  height: 500px;
+  margin: auto auto;
+  border: 10px solid black;
+  padding: 50px;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+}
