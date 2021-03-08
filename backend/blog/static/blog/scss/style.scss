@@ -1,9 +1,13 @@
-@import 'nullstyle';
-@import 'fonts/load_fonts';
-@import 'navigation/navigation';
-@import 'blogs/blogs';
-@import 'footer/footer';
+@import 'utils/nullstyle';
+@import 'utils/fonts/load_fonts';
+
+@import 'base/navigation/navigation';
+@import 'base/footer/footer';
+
+@import 'blog/blogs/blogs';
+@import 'blog/bloggers/bloggers';
+
 @import 'user/user';
-@import 'bloggers/bloggers';
+
 @import 'registration/registration';
 @import 'login/login';
