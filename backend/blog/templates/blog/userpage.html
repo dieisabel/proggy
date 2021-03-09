@@ -11,38 +11,36 @@
     <div class="right">
         <ul class="info--list">
             <li class="info__element">
-                <span>Username: Lavinchi</span>
+                <span>Username: {{ user.username }}</span>
             </li>
             <li class="info__element">
-                <span>Name: Kostya</span>
+                <span>Name: {{ user.name }}</span>
             </li>
             <li class="info__element">
-                <span>Surname: Kad</span>
+                <span>Surname: {{ user.surname }}</span>
             </li>
             <li class="info__element">
-                <span>E-mail: sometestmail@test.com</span>
+                <span>E-mail: {{ user.email }}</span>
             </li>
             <li class="info__element">
-                <span>Birthday: 01.01.1990</span>
+                <span>Birthday: {{ user.birthday }}</span>
             </li>
             <li class="info__element">
-                <span>Status: admin</span>
+                <span>Status: {{ user.status }}</span>
             </li>
 
+            {% if user.blogs %}
+            <span>
+                Blogs
+            </span>
             <ul class="info__blogs">
-                <span>
-                    Blogs
-                </span>
+                {% for blog in user.blogs %}
                 <li class="blog">
-                    <a href="#">Python blog</a>
+                    <a href="#">{{ blog.title }}</a>
                 </li>
-                <li class="blog">
-                    <a href="#">Scala blog</a>
-                </li>
-                <li class="blog">
-                    <a href="#">Roblox blog</a>
-                </li>
+                {% endfor %}
             </ul>
+            {% endif %}
         </ul>
     </div>
 
