@@ -13,6 +13,6 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created {username}')
             form.save()
-            return redirect('/')
+            return redirect('blog-blogs')
     form = UserCreationForm()
     return render(request, 'accounts/registration.html', {'form': form})
