@@ -9,3 +9,7 @@
 
 # todo
 *.todo
+
+# db
+*.db
+*.sqlite3
