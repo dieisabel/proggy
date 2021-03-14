@@ -6,19 +6,15 @@
 </head>
 
 <body>
+
     <div class="login">
-        <form action="#" method="POST">
-
-            <label for="login or email">Login or Email</label>
-            <input type="text" name="login or email" placeholder="Enter login">
-
-            <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Enter password">
-
+        <form action="{% url 'accounts-login' %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
             <input type="submit" name="submit">
-
         </form>
     </div>
+
 </body>
 
 </html>
