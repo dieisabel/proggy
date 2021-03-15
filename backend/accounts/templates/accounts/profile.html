@@ -5,7 +5,7 @@
 <div class="profile">
 
     <div class="left">
-        <img src="https://fakeimg.pl/300x300/ff0000/" alt="user avatar" class="avatar">
+        <img src="{{ user.profile.image.url }}" alt="{{ user.username }} avatar" class="avatar">
     </div>
 
     <div class="right">
@@ -13,35 +13,6 @@
             <li class="info__element">
                 <span>Username: {{ user.username }}</span>
             </li>
-            <li class="info__element">
-                <span>Name: {{ user.name }}</span>
-            </li>
-            <li class="info__element">
-                <span>Surname: {{ user.surname }}</span>
-            </li>
-            <li class="info__element">
-                <span>E-mail: {{ user.email }}</span>
-            </li>
-            <li class="info__element">
-                <span>Birthday: {{ user.birthday }}</span>
-            </li>
-            <li class="info__element">
-                <span>Status: {{ user.status }}</span>
-            </li>
-
-            {% if user.blogs %}
-            <span>
-                Blogs
-            </span>
-            <ul class="info__blogs">
-                {% for blog in user.blogs %}
-                <li class="blog">
-                    <a href="#">{{ blog.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </ul>
     </div>
 
 </div>
