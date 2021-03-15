@@ -6,6 +6,7 @@ from django.urls import include
 from django.contrib.auth import views as auth_views
 
 from accounts.views import register
+from accounts.views import profile
 
 
 urlpatterns = [
@@ -18,4 +19,6 @@ urlpatterns = [
     path('logout',
          auth_views.LogoutView.as_view(template_name='accounts/logout.html'),
          name='accounts-logout'),
+    path('profile',
+         profile, name='accounts-profile')
 ]

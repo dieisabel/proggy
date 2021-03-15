@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
 
@@ -16,3 +17,8 @@ def register(request):
             return redirect('blog-blogs')
     form = UserCreationForm()
     return render(request, 'accounts/registration.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    return render(request, 'accounts/profile.html')
