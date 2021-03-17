@@ -13,3 +13,6 @@
 # db
 *.db
 *.sqlite3
+
+# user folders
+media
