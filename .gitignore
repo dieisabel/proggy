@@ -15,4 +15,5 @@
 *.sqlite3
 
 # user folders
-media
+backend/media/*
+!backend/media/default/
