@@ -1,92 +1,9 @@
 {% block header %}
 
 <header>
-    <div class="navigation">
-        <div class="navigation--inner">
-            <ul class="navigation--main">
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i>
-                        </span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'blog-blogs' %}">
-                        <span class="icon"><i class="fa fa-book" aria-hidden="true"></i>
-                        </span>
-                        <span class="title">Blogs</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'blog-bloggers' %}">
-                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i>
-                        </span>
-                        <span class="title">Bloggers</span>
-                    </a>
-                </li>
-            </ul>
 
-            <ul class="navigation--account">
-                {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'accounts-profile' %}">
-                            <span class="icon"><i class="fa fa-user" aria-hidden="true"></i>
-                            </span>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'accounts-logout' %}">
-                            <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i>
-                            </span>
-                            <span class="title">Log Out</span>
-                        </a>
-                    </li>
-                {% else %}
-                    <li>
-                        <a href="{% url 'accounts-login' %}">
-                            <span class="icon"><i class="fa fa-sign-in" aria-hidden="true"></i>
-                            </span>
-                            <span class="title">Log In</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'accounts-register' %}">
-                            <span class="icon"><i class="fa fa-registered" aria-hidden="true"></i>
+    {% include 'blog/base/components/navbar.html' %}
 
-                            </span>
-                            <span class="title">Register</span>
-                        </a>
-                    </li>
-                {% endif %}
-            </ul>
-
-            <ul class="navigation--contacts">
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-comments" aria-hidden="true"></i>
-                        </span>
-                        <span class="title">Contact</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-heart" aria-hidden="true"></i>
-                        </span>
-                        <span class="title">Credits</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/dieisabel/proggy" target="_blank">
-                        <span class="icon"><i class="fa fa-github" aria-hidden="true"></i>
-                        </span>
-                        <span class="title">GitHub</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
 </header>
 
 {% endblock header %}
