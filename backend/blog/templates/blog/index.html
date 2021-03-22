@@ -8,15 +8,9 @@
 <body>
     {% include 'blog/base/base_header.html' %}
 
-    {% if messages %}
-        {% for message in messages %}
-            <div>
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
-
     <main role="main" class="container" style="margin-top: 100px;">
+        {% include 'blog/base/messages.html' %}
+
         {% block content %}
         {% endblock content %}
     </main>
