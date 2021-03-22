@@ -2,28 +2,26 @@
 
 {% block content %}
 
-<div class="bloggers">
-
+<div class="row row-cols-3 justify-content-around">
     {% for blogger in bloggers %}
-    <div class="bloggers__profile">
-        <img src="https://fakeimg.pl/300x300/ff0000/" alt="" class="profile__avatar">
-        <div class="profile__name">
-            Name: {{ blogger.name }}
-        </div>
-        <div class="profile__bio">
-            Bio: {{ blogger.bio }}
-        </div>
-        <div class="profile__detail">
-            <div class="profile__followers">
-                <span>Folowers: {{ blogger.followers }}</span>
+        <div class="col-auto mb-5">
+            <div class="card" style="width: 18rem;">
+                <img src="https://fakeimg.pl/300x300/ff0000/"
+                     alt="{{ blogger.name }} profile image"
+                     class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blogger.name }}</h5>
+                    <p class="card-text">{{ blogger.bio }}</p>
+                    <p class="card-followers text-muted">
+                        Followers: {{ blogger.followers }}
+                    </p>
+                    <a href="#" class="btn btn-primary stretched-link">
+                        Go to profile
+                    </a>
+                </div>
             </div>
-            <a href="#" class="profile__link">
-                Link: {{ blogger.link }}
-            </a>
         </div>
-    </div>
     {% endfor %}
-
 </div>
 
 {% endblock content %}
