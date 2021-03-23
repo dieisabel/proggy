@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig'
 ]
@@ -90,3 +91,5 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'blog-blogs'
 
 LOGIN_URL = 'accounts-login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
