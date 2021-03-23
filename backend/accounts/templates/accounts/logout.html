@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +8,24 @@
 </head>
 
 <body>
-
-    <div class="logout">
-        <h1>You have been logged out</h1>
+    <div class="container min-vh-100">
+        <div class="row min-vh-100 justify-content-center align-items-center">
+            <div>
+                <h5 class="text-center p-2 mb-0">
+                    Successfully logged out!</h5>
+                <div class="">
+                    <a href="{% url 'accounts-login' %}"
+                       class="btn btn-outline-primary w-100 mt-2">
+                        Log In
+                    </a>
+                    <a href="{% url 'blog-blogs' %}"
+                       class="btn btn-outline-primary w-100 mt-2">
+                        Back to blogs
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <a href="{% url 'blog-blogs' %}">Back to blogs</a>
 </body>
 
 </html>
