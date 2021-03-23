@@ -10,6 +10,7 @@ from django.contrib.auth import views as auth_views
 
 from accounts.views import register
 from accounts.views import profile
+from accounts.views import profile_blogs
 
 
 urlpatterns = [
@@ -23,7 +24,9 @@ urlpatterns = [
          auth_views.LogoutView.as_view(template_name='accounts/logout.html'),
          name='accounts-logout'),
     path('profile',
-         profile, name='accounts-profile')
+         profile, name='accounts-profile'),
+    path('profile/blogs',
+         profile_blogs, name='accounts-profile-blogs'),
 ]
 
 if settings.DEBUG:

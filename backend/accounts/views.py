@@ -23,3 +23,8 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'accounts/profile.html')
+
+
+@login_required
+def profile_blogs(request):
+    return render(request, 'accounts/profile_blogs.html')
