@@ -2,19 +2,67 @@
 
 {% block content %}
 
-<div class="profile">
-
-    <div class="left">
-        <img src="{{ user.profile.image.url }}" alt="{{ user.username }} avatar" class="avatar">
-    </div>
-
-    <div class="right">
-        <ul class="info--list">
-            <li class="info__element">
-                <span>Username: {{ user.username }}</span>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-pills nav-fill card-header-pills">
+            <li class="nav-item">
+                <a class="nav-link active bg-dark"
+                   href="{% url 'accounts-profile' %}">Bio</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark"
+                   href="#">Blogs</a>
+            </li>
+        </ul>
     </div>
-
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl mb-4">
+                <div class="card-body-image" style="max-width: 1000px;">
+                    <img src="{{ user.profile.image.url }}" alt="{{ user.username }} profile image"
+                        class="img-fluid rounded mw-50 mh-50">
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="text-uppercase text-center mb-3">
+                    {{ user.username }}
+                </h5>
+                <div class="card-body-bio text-left">
+                    <p>
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        Ueban Admin
+                    </p>
+                    <p>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        01.01.2001
+                    </p>
+                    <p></p>
+                    <p>
+                        <i class="fa fa-mars" aria-hidden="true"></i>
+                        Male
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        idiot@gmail.com
+                    </p>
+                    <p>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quidem quasi voluptatem, obcaecati
+                        nemo eum voluptas eligendi perspiciatis aliquid suscipit iure doloribus aperiam, dolor unde
+                        assumenda praesentium reiciendis cupiditate quod!
+                    </p>
+                    <p>
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        https://twitter.com/poshel/nahui
+                    </p>
+                    <p>
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                        ubeite.menua.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
