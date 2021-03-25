@@ -5,10 +5,10 @@
     {% include 'blog/base/base_head.html' %}
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     {% include 'blog/base/base_header.html' %}
 
-    <main role="main" class="container" style="margin-top: 100px;">
+    <main role="main" class="container">
         {% include 'blog/base/messages.html' %}
 
         {% block content %}
