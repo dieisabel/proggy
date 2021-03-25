@@ -2,22 +2,22 @@
 <html lang="ru">
 
 <head>
-    {% include 'blog/base/base_head.html' %}
+    {% include 'base/head.html' %}
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    {% include 'blog/base/base_header.html' %}
+    {% include 'blog/components/header.html' %}
 
     <main role="main" class="container">
-        {% include 'blog/base/messages.html' %}
+        {% include 'blog/components/messages.html' %}
 
         {% block content %}
         {% endblock content %}
     </main>
 
-    {% include 'blog/base/base_footer.html' %}
+    {% include 'blog/components/footer.html' %}
 
-    {% include 'blog/base/base_scripts.html' %}
+    {% include 'base/scripts.html' %}
 </body>
 
 </html>

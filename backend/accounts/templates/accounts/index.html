@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'base/head.html' %}
+</head>
+
+<body>
+    <main>
+        <div class="container min-vh-100">
+            <div class="row min-vh-100 justify-content-center align-items-center">
+                <div style="width: 500px;">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'base/scripts.html' %}
+</body>
+
+</html>
