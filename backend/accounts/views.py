@@ -17,14 +17,14 @@ def register(request):
             form.save()
             return redirect('blog-blogs')
     form = UserRegistrationForm()
-    return render(request, 'accounts/registration.html', {'form': form})
+    return render(request, 'accounts/main/registration.html', {'form': form})
 
 
 @login_required
-def profile(request):
-    return render(request, 'accounts/profile.html')
+def profile_bio(request):
+    return render(request, 'accounts/main/profile/profile_bio.html')
 
 
 @login_required
 def profile_blogs(request):
-    return render(request, 'accounts/profile_blogs.html')
+    return render(request, 'accounts/main/profile/profile_blogs.html')

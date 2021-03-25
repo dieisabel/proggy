@@ -46,4 +46,4 @@ def blogs(request):
     context = {
         "blogs": blogs,
     }
-    return render(request, 'blog/blogs.html', context)
+    return render(request, 'blog/main/blogs.html', context)
