@@ -34,35 +34,53 @@
                 </h5>
                 <div class="card-body-bio text-left">
                     <p>
-                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                        {{ user.first_name}} {{ user.last_name }}
+                        {% if user.first_name or user.last_name %}
+                            <i class="fa fa-address-card"
+                               aria-hidden="true"></i>
+                            {{ user.first_name}} {{ user.last_name }}
+                        {% endif %}
                     </p>
                     <p>
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        01.01.2001
+                        {% if user.profile.birthday %}
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            {{ user.profile.birthday }}
+                        {% endif %}
                     </p>
                     <p></p>
                     <p>
-                        <i class="fa fa-mars" aria-hidden="true"></i>
-                        Male
+                        {% if user.profile.gender == 'M' %}
+                            <i class="fa fa-mars" aria-hidden="true"></i>
+                            {{ user.profile.gender }}
+                        {% elif user.profile.gender == 'F' %}
+                            <i class="fa fa-venus" aria-hidden="true"></i>
+                            {{ user.profile.gender }}
+                        {% endif %}
                     </p>
                     <p>
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        {{ user.email }}
+                        {% if user.email %}
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            {{ user.email }}
+                        {% endif %}
                     </p>
                     <p>
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quidem quasi voluptatem, obcaecati
-                        nemo eum voluptas eligendi perspiciatis aliquid suscipit iure doloribus aperiam, dolor unde
-                        assumenda praesentium reiciendis cupiditate quod!
+                        {% if user.profile.bio %}
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            {{ user.profile.bio }}
+                        {% endif %}
                     </p>
                     <p>
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                        https://twitter.com/poshel/nahui
+                        {% if user.profile.bio %}
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            {{ user.profile.twitter_url }}
+                        {% endif %}
                     </p>
                     <p>
-                        <i class="fa fa-external-link" aria-hidden="true"></i>
-                        ubeite.menua.com
+                        {% if user.profile.custom_url %}
+                            <i class="fa fa-external-link"
+                               aria-hidden="true">
+                            </i>
+                            {{ user.profile.custom_url }}
+                        {% endif %}
                     </p>
                 </div>
             </div>
