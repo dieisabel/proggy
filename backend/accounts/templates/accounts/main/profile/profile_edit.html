@@ -1,0 +1,46 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="card text-center mb-5">
+    <div class="card-header">
+        <ul class="nav nav-pills nav-fill card-header-pills">
+            <li class="nav-item">
+                <a class="nav-link active bg-dark"
+                   href="{% url 'accounts-profile-bio' %}">Bio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark"
+                   href="{% url 'accounts-profile-blogs' %}">Blogs</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl mb-4">
+                <div class="card-body-image" style="max-width: 1000px;">
+                    <img src="{{ user.profile.image.url }}" alt="{{ user.username }} profile image"
+                        class="img-fluid rounded mw-50 mh-50">
+                </div>
+                <a href="{% url 'accounts-profile-bio' %}"
+                   type="button"
+                   class="btn btn-outline-secondary w-100 mt-4 active">
+                    Back to bio
+                </a>
+            </div>
+            <div class="col text-left">
+                <form action="{% url 'accounts-profile-edit' %}"
+                      method="POST"
+                      enctype="multipart/form-data">
+                    {% for form in forms %}
+                        {% crispy form form.helper %}
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
