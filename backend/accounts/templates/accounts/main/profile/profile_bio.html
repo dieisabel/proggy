@@ -22,6 +22,11 @@
                     <img src="{{ user.profile.image.url }}" alt="{{ user.username }} profile image"
                         class="img-fluid rounded mw-50 mh-50">
                 </div>
+                <a href="{% url 'accounts-profile-edit' %}"
+                   type="button"
+                   class="btn btn-outline-secondary w-100 mt-4">
+                    Edit
+                </a>
             </div>
             <div class="col">
                 <h5 class="text-uppercase text-center mb-3">
@@ -30,7 +35,7 @@
                 <div class="card-body-bio text-left">
                     <p>
                         <i class="fa fa-address-card" aria-hidden="true"></i>
-                        Ueban Admin
+                        {{ user.first_name}} {{ user.last_name }}
                     </p>
                     <p>
                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -43,7 +48,7 @@
                     </p>
                     <p>
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        idiot@gmail.com
+                        {{ user.email }}
                     </p>
                     <p>
                         <i class="fa fa-user" aria-hidden="true"></i>
