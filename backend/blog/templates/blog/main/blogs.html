@@ -7,11 +7,11 @@
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-author">Author</h5>
+                <h5 class="card-author">{{ blog.author }}</h5>
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ blog.title }}</h5>
-                <p class="card-text">{{ blog.text }}</p>
+                <p class="card-text">{{ blog.brief_description }}</p>
                 <a href="#" class="btn btn-primary stretched-link">Read</a>
             </div>
             <footer class="card-footer d-flex justify-content-between">
@@ -19,7 +19,7 @@
                     {{ blog.rating }}
                     <i class="fa fa-star" aria-hidden="true"></i>
                 </span>
-                <span class="card-creation-date">2 days ago</span>
+                <span class="card-creation-date">{{ blog.created_at }}</span>
             </footer>
         </div>
     </div>
