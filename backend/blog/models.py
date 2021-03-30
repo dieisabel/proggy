@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.urls import reverse
+
 from django.contrib.auth.models import User
 
 
@@ -18,3 +20,6 @@ class Post(models.Model):
 
     class Meta:
         db_table = 'posts'
+
+    def get_absolute_url(self):
+        return reverse('blog-blog', kwargs={'pk': self.pk})

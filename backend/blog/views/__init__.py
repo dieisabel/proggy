@@ -1,3 +1,5 @@
 from .blog import BlogDetailView
 from .blogs import BlogsView
 from .bloggers import bloggers
+
+from .create_blog import CreateBlogView
