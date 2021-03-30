@@ -1,2 +1,2 @@
-from .blogs import blogs
+from .blogs import BlogsView
 from .bloggers import bloggers

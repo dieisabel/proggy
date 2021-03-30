@@ -1,13 +1,13 @@
-__all__ = ['blogs']
+__all__ = ['BlogsView']
 
 
-from django.shortcuts import render
+from django.views.generic import ListView
 
 from blog.models import Post
 
 
-def blogs(request):
-    context = {
-        "blogs": Post.objects.all(),
-    }
-    return render(request, 'blog/main/blogs.html', context)
+class BlogsView(ListView):
+    model = Post
+    template_name = 'blog/main/blogs.html'
+    context_object_name = 'blogs'
+    ordering = ['-created_at']
