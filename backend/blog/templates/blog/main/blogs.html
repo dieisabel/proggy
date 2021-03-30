@@ -12,7 +12,10 @@
             <div class="card-body">
                 <h5 class="card-title">{{ blog.title }}</h5>
                 <p class="card-text">{{ blog.brief_description }}</p>
-                <a href="#" class="btn btn-primary stretched-link">Read</a>
+                <a href="{% url 'blog-blog' blog.id %}"
+                   class="btn btn-primary stretched-link">
+                   Read
+                </a>
             </div>
             <footer class="card-footer d-flex justify-content-between">
                 <span class="card-rating">

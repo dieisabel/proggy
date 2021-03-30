@@ -1,0 +1,22 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+
+<div class="card">
+    <h5 class="card-header">{{ blog.author }}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{ blog.title }}</h5>
+        <p class="card-text">
+            {{ blog.content }}
+        </p>
+    </div>
+    <footer class="card-footer d-flex justify-content-between">
+        <span class="card-rating">
+            {{ blog.rating }}
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </span>
+        <span class="card-creation-date">{{ blog.created_at }}</span>
+    </footer>
+</div>
+
+{% endblock content %}
