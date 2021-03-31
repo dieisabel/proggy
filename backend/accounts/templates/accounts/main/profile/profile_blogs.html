@@ -15,73 +15,38 @@
             </li>
         </ul>
     </div>
+
     <div class="card-body">
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card text-left">
-                    <div class="card-header">
-                        <h5 class="card-author">{{ user.username }}</h5>
+        {% for blog in object_list %}
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="card text-left">
+                        <div class="card-header">
+                            <h5 class="card-author">{{ blog.author }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ blog.title }}</h5>
+                            <p class="card-text">
+                                {{ blog.brief_description }}
+                            </p>
+                            <a href="{% url 'blog-blog' blog.id %}"
+                               class="btn btn-primary stretched-link">
+                               Read
+                            </a>
+                        </div>
+                        <footer class="card-footer d-flex justify-content-between">
+                            <span class="card-rating">
+                                {{ blog.rating }}
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </span>
+                            <span class="card-creation-date">
+                                {{ blog.created_at }}
+                            </span>
+                        </footer>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">TITLE</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus harum quam excepturi similique sequi quisquam deserunt, cupiditate neque fugit nisi porro ex sit repudiandae maxime, iure praesentium dolores odit illum!</p>
-                        <a href="#" class="btn btn-primary stretched-link">Read</a>
-                    </div>
-                    <footer class="card-footer d-flex justify-content-between">
-                        <span class="card-rating">
-                            RATING
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </span>
-                        <span class="card-creation-date">2 days ago</span>
-                    </footer>
                 </div>
             </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card text-left">
-                    <div class="card-header">
-                        <h5 class="card-author">{{ user.username }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">TITLE</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, rerum id eligendi velit modi illo nam a excepturi praesentium et cumque reprehenderit nemo esse non porro deserunt. Tempore, odit ex.</p>
-                        <a href="#" class="btn btn-primary stretched-link">Read</a>
-                    </div>
-                    <footer class="card-footer d-flex justify-content-between">
-                        <span class="card-rating">
-                            RATING
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </span>
-                        <span class="card-creation-date">2 days ago</span>
-                    </footer>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card text-left">
-                    <div class="card-header">
-                        <h5 class="card-author">{{ user.username }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">TITLE</h5>
-                        <p class="card-text">TEXT</p>
-                        <a href="#" class="btn btn-primary stretched-link">Read</a>
-                    </div>
-                    <footer class="card-footer d-flex justify-content-between">
-                        <span class="card-rating">
-                            RATING
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </span>
-                        <span class="card-creation-date">2 days ago</span>
-                    </footer>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-</div>
 
 {% endblock content %}

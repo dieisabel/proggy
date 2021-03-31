@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 
 from accounts.views import register
 from accounts.views import profile_bio
-from accounts.views import profile_blogs
+from accounts.views import ProfileBlogsView
 from accounts.views import profile_edit
 
 urlpatterns = [
@@ -18,7 +18,7 @@ urlpatterns = [
     path('profile/bio',
          profile_bio, name='accounts-profile-bio'),
     path('profile/blogs',
-         profile_blogs, name='accounts-profile-blogs'),
+         ProfileBlogsView.as_view(), name='accounts-profile-blogs'),
     path('profile/edit',
          profile_edit, name='accounts-profile-edit'),
 ]

@@ -1,11 +1,16 @@
-__all__ = ['profile_blogs']
+__all__ = ['ProfileBlogsView']
 
 
-from django.shortcuts import render
-
+from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
+from blog.models import Post
 
 
-@login_required
-def profile_blogs(request):
-    return render(request, 'accounts/main/profile/profile_blogs.html')
+class ProfileBlogsView(ListView):
+    model = Post
+    template_name = 'accounts/main/profile/profile_blogs.html'
+
+    def get_queryset(self):
+        return Post.objects.all(
+            ).filter(author=self.request.user
+            ).order_by('-created_at')
