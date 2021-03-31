@@ -1,11 +1,11 @@
-__all__ = ['profile_bio']
+__all__ = ['ProfileBioView']
 
 
-from django.shortcuts import render
-
+from django.views.generic import TemplateView
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 
-@login_required
-def profile_bio(request):
-    return render(request, 'accounts/main/profile/profile_bio.html')
+@method_decorator(login_required, name='dispatch')
+class ProfileBioView(TemplateView):
+    template_name = 'accounts/main/profile/profile_bio.html'
