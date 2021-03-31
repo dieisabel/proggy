@@ -35,6 +35,12 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
+                            <a href="{% url 'blog-create-blog' %}"
+                               class="nav-link">
+                                New blog
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{% url 'accounts-profile-bio' %}"
                                class="nav-link">
                                 Profile
