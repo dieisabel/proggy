@@ -5,6 +5,18 @@
 <div class="card">
     <h5 class="card-header">{{ blog.author }}</h5>
     <div class="card-body">
+        {% if blog.author == request.user %}
+        <div class="card-panel mb-2">
+            <a href="{% url 'blog-update-blog' blog.id %}"
+               class="btn btn-primary">
+                Update
+            </a>
+            <a href="{% url 'blog-delete-blog' blog.id %}"
+               class="btn btn-primary">
+                Delete
+            </a>
+        </div>
+        {% endif %}
         <h5 class="card-title">{{ blog.title }}</h5>
         <p class="card-text">
             {{ blog.content }}
