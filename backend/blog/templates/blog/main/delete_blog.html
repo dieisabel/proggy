@@ -1,0 +1,25 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="card">
+    <h5 class="card-header">Deleting blog</h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            Are you sure that you want to delete {{ object.title }}?
+        </h5>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">
+                Yes, delete
+            </button>
+        </form>
+        <button type="submit" class="btn btn-primary mt-2">
+            No
+        </button>
+    </div>
+</div>
+
+{% endblock content %}
