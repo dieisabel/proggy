@@ -2,13 +2,13 @@ from django.urls import path
 
 from django.contrib.auth import views as auth_views
 
-from accounts.views import register
+from accounts.views import RegisterView
 from accounts.views import profile_bio
 from accounts.views import ProfileBlogsView
 from accounts.views import profile_edit
 
 urlpatterns = [
-    path('register', register, name='accounts-register'),
+    path('register', RegisterView.as_view(), name='accounts-register'),
     path('login',
          auth_views.LoginView.as_view(template_name='accounts/main/login.html'),
          name='accounts-login'),
