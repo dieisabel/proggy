@@ -1,21 +1,35 @@
-__all__ = ['profile_edit']
+__all__ = ['ProfileEditView']
 
 
 from django.shortcuts import render
 from django.shortcuts import redirect
 
+from django.urls import reverse_lazy
+
+from django.views.generic import View
+
 from django.contrib import messages
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 from accounts.forms import UserUpdateForm
 from accounts.forms import ProfileUpdateForm
 
 
-@login_required
-def profile_edit(request):
+@method_decorator(login_required, name='dispatch')
+class ProfileEditView(View):
+    template_name = 'accounts/main/profile/profile_edit.html'
     u_form = UserUpdateForm()
     p_form = ProfileUpdateForm()
-    if request.POST:
+    success_url = reverse_lazy('accounts-profile-bio')
+
+    def get(self, request):
+        context = {
+            'forms': [self.u_form, self.p_form],
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request):
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES,
                                    instance=request.user.profile)
@@ -23,8 +37,5 @@ def profile_edit(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Account successfully updated!')
-            return redirect('accounts-profile-bio')
-    context = {
-        'forms': [u_form, p_form],
-    }
-    return render(request, 'accounts/main/profile/profile_edit.html', context)
+            return redirect(self.success_url)
+        return self.get(request)

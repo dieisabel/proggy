@@ -1,21 +1,22 @@
-__all__ = ['register']
+__all__ = ['RegisterView']
 
 
-from django.shortcuts import render
-from django.shortcuts import redirect
-
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 from django.contrib import messages
 
 from accounts.forms import UserRegistrationForm
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created {username}')
-            form.save()
-            return redirect('blog-blogs')
-    form = UserRegistrationForm()
-    return render(request, 'accounts/main/registration.html', {'form': form})
+class RegisterView(CreateView):
+    template_name = 'accounts/main/registration.html'
+    form_class = UserRegistrationForm
+    success_url = reverse_lazy('blog-blogs')
+
+    def form_valid(self, form):
+        username = form.cleaned_data.get('username')
+        messages.success(
+            self.request,
+            f'{username} account created successfully! Now you can log in!'
+        )
+        return super().form_valid(form)
