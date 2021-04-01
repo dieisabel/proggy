@@ -10,11 +10,8 @@
                      alt="{{ blogger.name }} profile image"
                      class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">{{ blogger.name }}</h5>
-                    <p class="card-text">{{ blogger.bio }}</p>
-                    <p class="card-followers text-muted">
-                        Followers: {{ blogger.followers }}
-                    </p>
+                    <h5 class="card-title">{{ blogger.username }}</h5>
+                    <p class="card-text">{{ blogger.profile.bio }}</p>
                     <a href="#" class="btn btn-primary stretched-link">
                         Go to profile
                     </a>
