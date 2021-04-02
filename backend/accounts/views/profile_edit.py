@@ -7,15 +7,14 @@ from django.shortcuts import redirect
 from django.views.generic import View
 
 from django.contrib import messages
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.models import User
 
 from accounts.forms import UserUpdateForm
 from accounts.forms import ProfileUpdateForm
 
 
-@method_decorator(login_required, name='dispatch')
-class ProfileEditView(View):
+class ProfileEditView(UserPassesTestMixin, View):
     template_name = 'accounts/main/profile/profile_edit.html'
     u_form = UserUpdateForm()
     p_form = ProfileUpdateForm()
@@ -36,6 +35,11 @@ class ProfileEditView(View):
             messages.success(request, f'Account successfully updated!')
             return redirect('accounts-profile-bio', self.get_username())
         return self.get(request)
+
+    def test_func(self):
+        actual = self.request.user
+        expected = User.objects.get(username=self.get_username())
+        return actual == expected
 
     def get_username(self):
         return self.kwargs.get('username')
