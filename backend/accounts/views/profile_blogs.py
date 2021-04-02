@@ -2,7 +2,6 @@ __all__ = ['ProfileBlogsView']
 
 
 from django.views.generic import ListView
-from django.contrib.auth.decorators import login_required
 from blog.models import Post
 
 
@@ -12,5 +11,8 @@ class ProfileBlogsView(ListView):
 
     def get_queryset(self):
         return Post.objects.all(
-            ).filter(author=self.request.user
+            ).filter(author__username=self.get_username()
             ).order_by('-created_at')
+
+    def get_username(self):
+        return self.kwargs.get('username')
