@@ -6,7 +6,7 @@
     {% for blogger in bloggers %}
         <div class="col-auto mb-5">
             <div class="card" style="width: 18rem;">
-                <img src="https://fakeimg.pl/300x300/ff0000/"
+                <img src="{{ blogger.profile.image.url }}"
                      alt="{{ blogger.name }} profile image"
                      class="card-img-top">
                 <div class="card-body">
