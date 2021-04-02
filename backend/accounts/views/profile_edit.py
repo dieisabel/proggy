@@ -4,8 +4,6 @@ __all__ = ['ProfileEditView']
 from django.shortcuts import render
 from django.shortcuts import redirect
 
-from django.urls import reverse_lazy
-
 from django.views.generic import View
 
 from django.contrib import messages
@@ -21,15 +19,14 @@ class ProfileEditView(View):
     template_name = 'accounts/main/profile/profile_edit.html'
     u_form = UserUpdateForm()
     p_form = ProfileUpdateForm()
-    success_url = reverse_lazy('accounts-profile-bio')
 
-    def get(self, request):
+    def get(self, request, username):
         context = {
             'forms': [self.u_form, self.p_form],
         }
         return render(request, self.template_name, context)
 
-    def post(self, request):
+    def post(self, request, username):
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES,
                                    instance=request.user.profile)
@@ -37,5 +34,8 @@ class ProfileEditView(View):
             u_form.save()
             p_form.save()
             messages.success(request, f'Account successfully updated!')
-            return redirect(self.success_url)
+            return redirect('accounts-profile-bio', self.get_username())
         return self.get(request)
+
+    def get_username(self):
+        return self.kwargs.get('username')
