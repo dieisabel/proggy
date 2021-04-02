@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-xl mb-4">
                 <div class="card-body-image" style="max-width: 1000px;">
-                    <img src="{{ user.profile.image.url }}" alt="{{ user.username }} profile image"
+                    <img src="{{ object.profile.image.url }}" alt="{{ object.username }} profile image"
                         class="img-fluid rounded mw-50 mh-50">
                 </div>
                 <a href="{% url 'accounts-profile-edit' %}"
@@ -30,56 +30,56 @@
             </div>
             <div class="col">
                 <h5 class="text-uppercase text-center mb-3">
-                    {{ user.username }}
+                    {{ object.username }}
                 </h5>
                 <div class="card-body-bio text-left">
                     <p>
-                        {% if user.first_name or user.last_name %}
+                        {% if object.first_name or object.last_name %}
                             <i class="fa fa-address-card"
                                aria-hidden="true"></i>
-                            {{ user.first_name}} {{ user.last_name }}
+                            {{ object.first_name}} {{ object.last_name }}
                         {% endif %}
                     </p>
                     <p>
-                        {% if user.profile.birthday %}
+                        {% if object.profile.birthday %}
                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                            {{ user.profile.birthday }}
+                            {{ object.profile.birthday }}
                         {% endif %}
                     </p>
                     <p></p>
                     <p>
-                        {% if user.profile.gender == 'M' %}
+                        {% if object.profile.gender == 'M' %}
                             <i class="fa fa-mars" aria-hidden="true"></i>
-                            {{ user.profile.gender }}
-                        {% elif user.profile.gender == 'F' %}
+                            {{ object.profile.gender }}
+                        {% elif object.profile.gender == 'F' %}
                             <i class="fa fa-venus" aria-hidden="true"></i>
-                            {{ user.profile.gender }}
+                            {{ object.profile.gender }}
                         {% endif %}
                     </p>
                     <p>
-                        {% if user.email %}
+                        {% if object.email %}
                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            {{ user.email }}
+                            {{ object.email }}
                         {% endif %}
                     </p>
                     <p>
-                        {% if user.profile.bio %}
+                        {% if object.profile.bio %}
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            {{ user.profile.bio }}
+                            {{ object.profile.bio }}
                         {% endif %}
                     </p>
                     <p>
-                        {% if user.profile.twitter_url %}
+                        {% if object.profile.twitter_url %}
                             <i class="fa fa-twitter" aria-hidden="true"></i>
-                            {{ user.profile.twitter_url }}
+                            {{ object.profile.twitter_url }}
                         {% endif %}
                     </p>
                     <p>
-                        {% if user.profile.custom_url %}
+                        {% if object.profile.custom_url %}
                             <i class="fa fa-external-link"
                                aria-hidden="true">
                             </i>
-                            {{ user.profile.custom_url }}
+                            {{ object.profile.custom_url }}
                         {% endif %}
                     </p>
                 </div>
