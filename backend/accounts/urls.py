@@ -15,10 +15,10 @@ urlpatterns = [
     path('logout',
          auth_views.LogoutView.as_view(template_name='accounts/main/logout.html'),
          name='accounts-logout'),
-    path('profile/bio',
+    path('profile/<str:username>/bio',
          ProfileBioView.as_view(), name='accounts-profile-bio'),
-    path('profile/blogs',
+    path('profile/<str:username>/blogs',
          ProfileBlogsView.as_view(), name='accounts-profile-blogs'),
-    path('profile/edit',
+    path('profile/<str:username>/edit',
          ProfileEditView.as_view(), name='accounts-profile-edit'),
 ]
