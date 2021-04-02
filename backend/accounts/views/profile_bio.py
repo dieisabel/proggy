@@ -1,11 +1,16 @@
 __all__ = ['ProfileBioView']
 
 
-from django.views.generic import TemplateView
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
+from django.views.generic import DetailView
+from django.contrib.auth.models import User
 
 
-@method_decorator(login_required, name='dispatch')
-class ProfileBioView(TemplateView):
+class ProfileBioView(DetailView):
+    model = User
     template_name = 'accounts/main/profile/profile_bio.html'
+
+    def get_object(self):
+        return User.objects.get(username=self.get_username())
+
+    def get_username(self):
+        return self.kwargs.get('username')
