@@ -11,6 +11,14 @@
                 <a class="nav-link active bg-dark"
                    href="{% url 'accounts-profile-bio' user.username %}">Bio</a>
             </li>
+            {% ifequal user.groups.all.0.name "blogger" %}
+                <li class="nav-item">
+                    <a class="nav-link text-dark"
+                       href="{% url 'accounts-profile-blogs' user.username %}">
+                    Blogs
+                    </a>
+                </li>
+            {% endifequal %}
         </ul>
     </div>
     <div class="card-body">

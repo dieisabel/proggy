@@ -7,12 +7,16 @@
         <ul class="nav nav-pills nav-fill card-header-pills">
             <li class="nav-item">
                 <a class="nav-link active bg-dark"
-                   href="{% url 'accounts-profile-bio' %}">Bio</a>
+                   href="{% url 'accounts-profile-bio' object.username %}">Bio</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark"
-                   href="{% url 'accounts-profile-blogs' %}">Blogs</a>
-            </li>
+            {% ifequal object.groups.all.0.name "blogger" %}
+                <li class="nav-item">
+                    <a class="nav-link text-dark"
+                       href="{% url 'accounts-profile-blogs' object.username %}">
+                    Blogs
+                    </a>
+                </li>
+            {% endifequal %}
         </ul>
     </div>
     <div class="card-body">
@@ -22,11 +26,13 @@
                     <img src="{{ object.profile.image.url }}" alt="{{ object.username }} profile image"
                         class="img-fluid rounded mw-50 mh-50">
                 </div>
-                <a href="{% url 'accounts-profile-edit' %}"
-                   type="button"
-                   class="btn btn-outline-secondary w-100 mt-4">
-                    Edit
-                </a>
+                {% if request.user.username == object.username %}
+                    <a href="{% url 'accounts-profile-edit' object.username %}"
+                    type="button"
+                    class="btn btn-outline-secondary w-100 mt-4">
+                        Edit
+                    </a>
+                {% endif %}
             </div>
             <div class="col">
                 <h5 class="text-uppercase text-center mb-3">

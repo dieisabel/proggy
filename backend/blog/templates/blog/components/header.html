@@ -34,12 +34,14 @@
                 <!-- account -->
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a href="{% url 'blog-create-blog' %}"
-                               class="nav-link">
-                                New blog
-                            </a>
-                        </li>
+                        {% ifequal request.user.groups.all.0.name "blogger" %}
+                            <li class="nav-item">
+                                <a href="{% url 'blog-create-blog' %}"
+                                class="nav-link">
+                                    New blog
+                                </a>
+                            </li>
+                        {% endifequal %}
                         <li class="nav-item">
                             <a href="{% url 'accounts-profile-bio' user.username %}"
                                class="nav-link">
