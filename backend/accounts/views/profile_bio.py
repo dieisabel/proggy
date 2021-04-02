@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 class ProfileBioView(DetailView):
     model = User
     template_name = 'accounts/main/profile/profile_bio.html'
+    context_object_name = 'object'
 
     def get_object(self):
         return User.objects.get(username=self.get_username())
