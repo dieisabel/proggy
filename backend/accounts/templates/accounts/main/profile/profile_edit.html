@@ -27,8 +27,7 @@
                 </a>
             </div>
             <div class="col text-left">
-                <form action="{% url 'accounts-profile-edit' %}"
-                      method="POST"
+                <form method="POST"
                       enctype="multipart/form-data">
                     {% for form in forms %}
                         {% crispy form form.helper %}
