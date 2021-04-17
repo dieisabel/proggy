@@ -1,3 +1,5 @@
+from .about import AboutView
+
 from .blog import BlogDetailView
 from .blogs import BlogsView
 from .bloggers import BloggersView
