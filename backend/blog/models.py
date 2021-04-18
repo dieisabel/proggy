@@ -17,9 +17,24 @@ class Post(models.Model):
                                       auto_now_add=True)
     last_modified = models.DateTimeField('последнее обновление', auto_now=True)
     rating = models.IntegerField('рейтинг', default=0)
+    tags = models.ManyToManyField('Tag')
 
     class Meta:
         db_table = 'posts'
 
+    def __str__(self):
+        return f'{self.title} by {self.author}'
+
     def get_absolute_url(self):
         return reverse('blog-blog', kwargs={'pk': self.pk})
+
+
+class Tag(models.Model):
+
+    name = models.CharField('Имя', max_length=50)
+
+    class Meta:
+        db_table = 'tags'
+
+    def __str__(self):
+        return self.name
