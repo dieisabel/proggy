@@ -21,6 +21,11 @@
         <p class="card-text">
             {{ blog.content }}
         </p>
+        <div class="tags mt-3">
+            {% for tag in blog.tags.all %}
+                <span class="badge badge-primary">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
     </div>
     <footer class="card-footer d-flex justify-content-between">
         <span class="card-rating">
