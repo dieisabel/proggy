@@ -2,6 +2,17 @@
 
 {% block content %}
 
+<div class="wrapper mb-5">
+    <form class="form-inline" method="GET" action="{% url 'blog-blogs' %}">
+        <input class="form-control mr-sm-2"
+               name="tag_name"
+               type="search"
+               placeholder="Search by tag"
+               aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+
 {% for blog in blogs %}
 <div class="row mb-5">
     <div class="col">
