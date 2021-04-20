@@ -14,7 +14,8 @@ class CreateBlogView(CreateView):
     fields = [
         'title',
         'brief_description',
-        'content'
+        'content',
+        'tags',
     ]
     template_name = 'blog/main/create_blog.html'
 

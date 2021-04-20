@@ -14,7 +14,8 @@ class UpdateBlogView(UpdateView):
     fields = [
         'title',
         'brief_description',
-        'content'
+        'content',
+        'tags',
     ]
     template_name = 'blog/main/update_blog.html'
 
