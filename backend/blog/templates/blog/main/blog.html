@@ -36,6 +36,16 @@
     </footer>
 </div>
 
+{% if user.is_authenticated %}
+    <div class="input-group flex-nowrap mb-5">
+        <form method="POST" class="d-flex flex-row">
+            {% csrf_token %}
+            <textarea class="form-control mr-3" aria-label="With textarea" name="comment_content"></textarea>
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Comment</button>
+        </form>
+    </div>
+{% endif %}
+
 <div class="comments">
     {% for comment in blog.comment_set.all %}
         <div class="media border mb-3 p-3">
