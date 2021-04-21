@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="card">
+<div class="card mb-5">
     <h5 class="card-header">{{ blog.author }}</h5>
     <div class="card-body">
         {% if blog.author == request.user %}
@@ -34,6 +34,22 @@
         </span>
         <span class="card-creation-date">{{ blog.created_at }}</span>
     </footer>
+</div>
+
+<div class="comments">
+    {% for comment in blog.comment_set.all %}
+        <div class="media border mb-3 p-3">
+            <img src="{{ comment.author.profile.image.url }}"
+                 class="mr-3 rounded-circle"
+                 alt="{{ comment.author.username }} profile pic"
+                 style="width: 100px">
+            <div class="media-body">
+                <h5 class="mt-0">{{ comment.author.username }}</h5>
+                <p>{{ comment.content }}</p>
+                <span class="footer">{{ comment.date }}</span>
+            </div>
+        </div>
+    {% endfor %}
 </div>
 
 {% endblock content %}
