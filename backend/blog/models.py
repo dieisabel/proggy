@@ -38,3 +38,18 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+
+    class Meta:
+        db_table = 'comments'
+        ordering = ['-date']
+
+    def __str__(self):
+        return f'By {self.author} on {self.post}'
