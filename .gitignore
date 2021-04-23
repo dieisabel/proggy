@@ -6,6 +6,7 @@
 
 # editor settings
 .vscode
+.idea
 
 # todo
 *.todo
