@@ -9,12 +9,12 @@
         <ul class="nav nav-pills nav-fill card-header-pills">
             <li class="nav-item">
                 <a class="nav-link active bg-dark"
-                   href="{% url 'accounts-profile-bio' user.username %}">Bio</a>
+                   href="{% url 'accounts:profile:bio' user.username %}">Bio</a>
             </li>
             {% ifequal user.groups.all.0.name "blogger" %}
                 <li class="nav-item">
                     <a class="nav-link text-dark"
-                       href="{% url 'accounts-profile-blogs' user.username %}">
+                       href="{% url 'accounts:profile:blogs' user.username %}">
                     Blogs
                     </a>
                 </li>
@@ -28,7 +28,7 @@
                     <img src="{{ user.profile.image.url }}" alt="{{ user.username }} profile image"
                         class="img-fluid rounded mw-50 mh-50">
                 </div>
-                <a href="{% url 'accounts-profile-bio' user.username %}"
+                <a href="{% url 'accounts:profile:bio' user.username %}"
                    type="button"
                    class="btn btn-outline-secondary w-100 mt-4 active">
                     Back to bio

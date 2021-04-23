@@ -43,26 +43,26 @@
                             </li>
                         {% endifequal %}
                         <li class="nav-item">
-                            <a href="{% url 'accounts-profile-bio' user.username %}"
+                            <a href="{% url 'accounts:profile:bio' user.username %}"
                                class="nav-link">
                                 Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'accounts-logout' %}"
+                            <a href="{% url 'accounts:auth:logout' %}"
                                class="nav-link">
                                 Log Out
                             </a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a href="{% url 'accounts-login' %}"
+                            <a href="{% url 'accounts:auth:login' %}"
                                class="nav-link">
                                 Login
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'accounts-register' %}"
+                            <a href="{% url 'accounts:auth:register' %}"
                                class="nav-link">
                                 Register
                             </a>

@@ -5,7 +5,9 @@
 {% block content %}
 
 <h5 class="text-center border rounded p-2">Login</h5>
-<form action="{% url 'accounts-login' %}" method="POST" class="col-12 form-registration border rounded pt-2">
+<form action="{% url 'accounts:auth:login' %}"
+      method="POST"
+      class="col-12 form-registration border rounded pt-2">
     {% csrf_token %}
     {{ form|crispy }}
     <div class="form-group">
@@ -16,7 +18,7 @@
 </form>
 <p class="text-center border rounded p-2 mt-2 mb-2">
     Doesn't have an account?
-    <a href="{% url 'accounts-register' %}">
+    <a href="{% url 'accounts:auth:register' %}">
         Register
     </a>
 </p>
@@ -24,7 +26,6 @@
     <a href="{% url 'blog-blogs' %}" class="btn btn-outline-primary w-100">
         Back to blogs
     </a>
-</div>
 </div>
 
 {% endblock content %}

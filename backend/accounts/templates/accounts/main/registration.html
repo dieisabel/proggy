@@ -5,7 +5,9 @@
 {% load crispy_forms_tags %}
 
 <h5 class="text-center border rounded p-2">Registration</h5>
-<form action="{% url 'accounts-register' %}" method="POST" class="col-12 form-registration border rounded pt-2">
+<form action="{% url 'accounts:auth:register' %}"
+      method="POST"
+      class="col-12 form-registration border rounded pt-2">
     {% csrf_token %}
     {{ form|crispy }}
     <div class="form-group">
@@ -16,7 +18,7 @@
 </form>
 <p class="text-center border rounded p-2 mt-2 mb-2">
     Already have an account?
-    <a href="{% url 'accounts-login' %}">
+    <a href="{% url 'accounts:auth:login' %}">
         Log In
     </a>
 </p>

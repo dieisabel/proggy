@@ -7,12 +7,12 @@
         <ul class="nav nav-pills nav-fill card-header-pills">
             <li class="nav-item">
                 <a class="nav-link active bg-dark"
-                   href="{% url 'accounts-profile-bio' object.username %}">Bio</a>
+                   href="{% url 'accounts:profile:bio' object.username %}">Bio</a>
             </li>
             {% ifequal object.groups.all.0.name "blogger" %}
                 <li class="nav-item">
                     <a class="nav-link text-dark"
-                       href="{% url 'accounts-profile-blogs' object.username %}">
+                       href="{% url 'accounts:profile:blogs' object.username %}">
                     Blogs
                     </a>
                 </li>
@@ -27,7 +27,7 @@
                         class="img-fluid rounded mw-50 mh-50">
                 </div>
                 {% if request.user.username == object.username %}
-                    <a href="{% url 'accounts-profile-edit' object.username %}"
+                    <a href="{% url 'accounts:profile:edit' object.username %}"
                     type="button"
                     class="btn btn-outline-secondary w-100 mt-4">
                         Edit
