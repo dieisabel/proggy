@@ -13,5 +13,5 @@ from blog.models import Post
 @method_decorator(login_required, name='dispatch')
 class DeleteBlogView(DeleteView):
     model = Post
-    template_name = 'blog/main/delete_post.html'
+    template_name = 'blog/main/post_crud/delete_post.html'
     success_url = reverse_lazy('blog:blogs')
