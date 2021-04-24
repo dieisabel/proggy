@@ -17,7 +17,7 @@ class UpdateBlogView(UpdateView):
         'content',
         'tags',
     ]
-    template_name = 'blog/main/update_blog.html'
+    template_name = 'blog/main/update_post.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

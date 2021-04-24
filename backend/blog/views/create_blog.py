@@ -17,7 +17,7 @@ class CreateBlogView(CreateView):
         'content',
         'tags',
     ]
-    template_name = 'blog/main/create_blog.html'
+    template_name = 'blog/main/create_post.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -11,7 +11,7 @@ from blog.models import Comment
 
 class BlogDetailView(DetailView):
     model = Post
-    template_name = 'blog/main/blog.html'
+    template_name = 'blog/main/post.html'
     context_object_name = 'blog'
 
     def post(self, request, pk):

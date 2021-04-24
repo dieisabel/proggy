@@ -8,7 +8,7 @@ from blog.models import Post
 
 class BlogsView(ListView):
     model = Post
-    template_name = 'blog/main/blogs.html'
+    template_name = 'blog/main/posts.html'
     context_object_name = 'blogs'
     ordering = '-created_at'
     paginate_by = 7
