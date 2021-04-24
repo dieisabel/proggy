@@ -19,4 +19,4 @@ class BlogDetailView(DetailView):
         Comment.objects.create(author=self.request.user,
                                post=Post.objects.all().filter(id=pk).first(),
                                content=comment_content)
-        return redirect('blog-blog', pk)
+        return redirect('blog:posts:post', pk)

@@ -89,7 +89,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = 'blog-blogs'
+LOGIN_REDIRECT_URL = 'blog:blogs'
 
 LOGIN_URL = 'accounts-login'
 

@@ -7,11 +7,11 @@
     <div class="card-body">
         {% if blog.author == request.user %}
         <div class="card-panel mb-2">
-            <a href="{% url 'blog-update-blog' blog.id %}"
+            <a href="{% url 'blog:posts:update' blog.id %}"
                class="btn btn-primary">
                 Update
             </a>
-            <a href="{% url 'blog-delete-blog' blog.id %}"
+            <a href="{% url 'blog:posts:delete' blog.id %}"
                class="btn btn-primary">
                 Delete
             </a>
@@ -23,7 +23,9 @@
         </p>
         <div class="tags mt-3">
             {% for tag in blog.tags.all %}
-                <a class="badge badge-primary" href="{% url 'blog-blogs' %}?tag_name={{ tag.name }}">{{ tag.name }}</a>
+                <a class="badge badge-primary" href="{% url 'blog:blogs' %}?tag_name={{ tag.name }}">
+                    {{ tag.name }}
+                </a>
             {% endfor %}
         </div>
     </div>

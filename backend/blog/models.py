@@ -26,7 +26,7 @@ class Post(models.Model):
         return f'{self.title} by {self.author}'
 
     def get_absolute_url(self):
-        return reverse('blog-blog', kwargs={'pk': self.pk})
+        return reverse('blog:posts:post', kwargs={'pk': self.pk})
 
 
 class Tag(models.Model):

@@ -21,10 +21,10 @@
                 <!-- blogs -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="{% url 'blog-blogs' %}" class="nav-link">Blogs</a>
+                        <a href="{% url 'blog:blogs' %}" class="nav-link">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'blog-bloggers' %}"
+                        <a href="{% url 'blog:bloggers' %}"
                            class="nav-link">
                             Bloggers
                         </a>
@@ -36,7 +36,7 @@
                     {% if user.is_authenticated %}
                         {% ifequal request.user.groups.all.0.name "blogger" %}
                             <li class="nav-item">
-                                <a href="{% url 'blog-create-blog' %}"
+                                <a href="{% url 'blog:posts:create' %}"
                                 class="nav-link">
                                     New blog
                                 </a>

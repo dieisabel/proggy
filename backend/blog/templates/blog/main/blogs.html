@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="wrapper mb-5">
-    <form class="form-inline" method="GET" action="{% url 'blog-blogs' %}">
+    <form class="form-inline" method="GET" action="{% url 'blog:blogs' %}">
         <input class="form-control mr-sm-2"
                name="tag_name"
                type="search"
@@ -23,7 +23,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ blog.title }}</h5>
                 <p class="card-text">{{ blog.brief_description }}</p>
-                <a href="{% url 'blog-blog' blog.id %}"
+                <a href="{% url 'blog:posts:post' blog.id %}"
                    class="btn btn-primary stretched-link">
                    Read
                 </a>
@@ -51,13 +51,13 @@
             {% if page_obj.has_previous %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="{% url 'blog-blogs' %}?page=1">
+                       href="{% url 'blog:blogs' %}?page=1">
                         First
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link"
-                       href="{% url 'blog-blogs' %}?page={{ page_obj.previous_page_number }}">
+                       href="{% url 'blog:blogs' %}?page={{ page_obj.previous_page_number }}">
                         Previous
                     </a>
                 </li>
@@ -67,14 +67,14 @@
                 {% if page_obj.number == num %}
                     <li class="page-item active">
                         <a class="page-link"
-                           href="{% url 'blog-blogs' %}?page={{ num }}">
+                           href="{% url 'blog:blogs' %}?page={{ num }}">
                             {{ num }}
                         </a>
                     </li>
                 {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
                     <li class="page-item">
                         <a class="page-link"
-                           href="{% url 'blog-blogs' %}?page={{ num }}">
+                           href="{% url 'blog:blogs' %}?page={{ num }}">
                             {{ num }}
                         </a>
                     </li>
@@ -84,13 +84,13 @@
             {% if page_obj.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="{% url 'blog-blogs' %}?page={{ page_obj.next_page_number }}">
+                       href="{% url 'blog:blogs' %}?page={{ page_obj.next_page_number }}">
                         Next
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link"
-                       href="{% url 'blog-blogs' %}?page={{ paginator.num_pages }}">
+                       href="{% url 'blog:blogs' %}?page={{ paginator.num_pages }}">
                         Last
                     </a>
                 </li>

@@ -14,4 +14,4 @@ from blog.models import Post
 class DeleteBlogView(DeleteView):
     model = Post
     template_name = 'blog/main/delete_blog.html'
-    success_url = reverse_lazy('blog-blogs')
+    success_url = reverse_lazy('blog:blogs')
