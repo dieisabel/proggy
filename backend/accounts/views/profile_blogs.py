@@ -22,7 +22,7 @@ class ProfileBlogsView(View):
             context.update({'object_list': posts})
             return render(
                 request,
-                'accounts/main/profile/profile_blogs.html',
+                'accounts/main/profile/blogs.html',
                 context)
         context.update({'object': user})
         return render(

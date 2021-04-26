@@ -15,7 +15,7 @@ from accounts.forms import ProfileUpdateForm
 
 
 class ProfileEditView(UserPassesTestMixin, View):
-    template_name = 'accounts/main/profile/profile_edit.html'
+    template_name = 'accounts/main/profile/edit.html'
     u_form = UserUpdateForm()
     p_form = ProfileUpdateForm()
 
