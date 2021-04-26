@@ -16,12 +16,12 @@ from accounts.forms import ProfileUpdateForm
 
 class ProfileEditView(UserPassesTestMixin, View):
     template_name = 'accounts/main/profile/edit.html'
-    u_form = UserUpdateForm()
-    p_form = ProfileUpdateForm()
 
     def get(self, request, username):
+        u_form = UserUpdateForm(instance=self.request.user)
+        p_form = ProfileUpdateForm(instance=self.request.user.profile)
         context = {
-            'forms': [self.u_form, self.p_form],
+            'forms': [u_form, p_form],
         }
         return render(request, self.template_name, context)
 
@@ -33,7 +33,7 @@ class ProfileEditView(UserPassesTestMixin, View):
             u_form.save()
             p_form.save()
             messages.success(request, f'Account successfully updated!')
-            return redirect('accounts-profile-bio', self.get_username())
+            return redirect('accounts:profile:bio', self.get_username())
         return self.get(request)
 
     def test_func(self):
