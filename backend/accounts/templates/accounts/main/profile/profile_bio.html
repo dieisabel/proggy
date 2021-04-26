@@ -1,5 +1,7 @@
 {% extends 'blog/index.html' %}
 
+{% load accounts_custom_tags %}
+
 {% block content %}
 
 <div class="card text-center mb-5">
@@ -9,14 +11,14 @@
                 <a class="nav-link active bg-dark"
                    href="{% url 'accounts:profile:bio' object.username %}">Bio</a>
             </li>
-            {% ifequal object.groups.all.0.name "blogger" %}
+            {% if object|has_group:"blogger" %}
                 <li class="nav-item">
                     <a class="nav-link text-dark"
                        href="{% url 'accounts:profile:blogs' object.username %}">
                     Blogs
                     </a>
                 </li>
-            {% endifequal %}
+            {% endif %}
         </ul>
     </div>
     <div class="card-body">
