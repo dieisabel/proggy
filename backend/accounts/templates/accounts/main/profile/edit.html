@@ -3,6 +3,7 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
+{% load accounts_custom_tags %}
 
 <div class="card text-center mb-5">
     <div class="card-header">
@@ -11,14 +12,14 @@
                 <a class="nav-link active bg-dark"
                    href="{% url 'accounts:profile:bio' user.username %}">Bio</a>
             </li>
-            {% ifequal user.groups.all.0.name "blogger" %}
+            {% if user|has_group:"blogger" %}
                 <li class="nav-item">
                     <a class="nav-link text-dark"
                        href="{% url 'accounts:profile:blogs' user.username %}">
                     Blogs
                     </a>
                 </li>
-            {% endifequal %}
+            {% endif %}
         </ul>
     </div>
     <div class="card-body">
