@@ -91,7 +91,7 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'blog:blogs'
 
-LOGIN_URL = 'accounts-login'
+LOGIN_URL = 'accounts:auth:login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
