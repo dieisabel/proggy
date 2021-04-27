@@ -2,13 +2,12 @@ __all__ = ['ProfileBlogsView']
 
 
 from django.views.generic import View
-
 from django.shortcuts import render
-
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 
 from blog.models import Post
+from utils import has_group
 
 
 class ProfileBlogsView(View):
@@ -17,7 +16,7 @@ class ProfileBlogsView(View):
     def get(self, request, username):
         user = self.get_user(username)
         context = {}
-        if self.check_group(user):
+        if has_group(user, 'blogger'):
             posts = self.get_posts(username)
             context.update({'object_list': posts})
             return render(
@@ -37,7 +36,3 @@ class ProfileBlogsView(View):
 
     def get_user(self, username):
         return User.objects.get(username=username)
-
-    def check_group(self, user):
-        group = Group.objects.get(name="blogger")
-        return group.user_set.filter(username=user.username).exists()

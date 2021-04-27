@@ -5,6 +5,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.mixins import UserPassesTestMixin
 
 from blog.models import Post
+from utils import has_group
 
 
 class CreateBlogView(UserPassesTestMixin, CreateView):
@@ -22,6 +23,6 @@ class CreateBlogView(UserPassesTestMixin, CreateView):
         return super().form_valid(form)
 
     def test_func(self):
-        if not self.request.user.groups.filter(name='blogger').exists():
+        if not has_group(self.request.user, 'blogger'):
             return False
         return True

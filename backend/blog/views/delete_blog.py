@@ -7,6 +7,7 @@ from django.views.generic import DeleteView
 from django.contrib.auth.mixins import UserPassesTestMixin
 
 from blog.models import Post
+from utils import has_group
 
 
 class DeleteBlogView(UserPassesTestMixin, DeleteView):
@@ -16,6 +17,6 @@ class DeleteBlogView(UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         if self.get_object().author.username != self.request.user.username \
-                or not self.request.user.groups.filter(name='blogger').exists():
+                or not has_group(self.request.user, 'blogger'):
             return False
         return True
