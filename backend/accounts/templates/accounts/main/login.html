@@ -10,6 +10,7 @@
       class="col-12 form-registration border rounded pt-2">
     {% csrf_token %}
     {{ form|crispy }}
+    <input type="hidden" name="next" value="{{ next }}">
     <div class="form-group">
         <button type="submit" class="btn btn-primary">
             Sign In
