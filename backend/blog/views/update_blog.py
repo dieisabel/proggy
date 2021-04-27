@@ -1,15 +1,12 @@
 __all__ = ['UpdateBlogView']
 
-
 from django.views.generic import UpdateView
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from blog.models import Post
 
 
-@method_decorator(login_required, name='dispatch')
-class UpdateBlogView(UpdateView):
+class UpdateBlogView(UserPassesTestMixin, UpdateView):
     model = Post
     fields = [
         'title',
@@ -23,3 +20,8 @@ class UpdateBlogView(UpdateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    def test_func(self):
+        if self.get_object().author.username != self.request.user.username \
+                or not self.request.user.groups.filter(name='blogger').exists():
+            return False
+        return True
