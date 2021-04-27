@@ -8,7 +8,11 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{ blogger.profile.image.url }}"
                      alt="{{ blogger.name }} profile image"
-                     class="card-img-top">
+                     class="card-img-top"
+                     style="max-height: 280px;
+                            max-width: 100%;;
+                            object-fit: cover;
+                            object-position: top;">
                 <div class="card-body">
                     <h5 class="card-title">{{ blogger.username }}</h5>
                     <p class="card-text">{{ blogger.profile.bio }}</p>
