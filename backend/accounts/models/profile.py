@@ -1,10 +1,10 @@
 __all__ = ['Profile']
 
 
-from PIL import Image
 from django.db import models
-
 from django.contrib.auth.models import User
+
+from utils import resize_image
 
 
 class Profile(models.Model):
@@ -43,9 +43,4 @@ class Profile(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         super().save()
-
-        image = Image.open(self.image.path)
-        if image.height > 700 or image.width > 700:
-            output_size = (700, 700)
-            image.thumbnail(output_size)
-            image.save(self.image.path)
+        resize_image(self.image.path, 700, 700)
