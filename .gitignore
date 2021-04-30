@@ -1,5 +1,6 @@
 # environment
 .venv
+venv
 
 # cache
 *.pyc
