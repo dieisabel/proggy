@@ -1,4 +1,5 @@
 from .about import AboutView
+from .contact import ContactView
 
 from .blog import BlogDetailView
 from .blogs import BlogsView
