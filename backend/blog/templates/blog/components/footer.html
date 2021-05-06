@@ -5,12 +5,13 @@
         <div class="row text-center pt-3">
             <div class="col">
                 <a href="{% url 'blog:about' %}" class="footer-about mr-5 text-light">About</a>
-                <a href="#" class="footer-contact mr-5 text-light">Contact</a>
+                <a href="{% url 'blog:contact' %}" class="footer-contact mr-5 text-light">Contact</a>
                 <a href="https://github.com/dieisabel/proggy"
+                   target="_blank"
                    class="footer-github mr-5 text-light">
                    GitHub
                 </a>
-                <a href="#" class="footer-credits text-light">Credits</a>
+                <a href="{% url 'blog:credits' %}" class="footer-credits text-light">Credits</a>
             </div>
         </div>
         <div class="row">
