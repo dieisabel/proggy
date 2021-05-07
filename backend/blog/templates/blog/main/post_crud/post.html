@@ -54,7 +54,10 @@
             <img src="{{ comment.author.profile.image.url }}"
                  class="mr-3 rounded-circle"
                  alt="{{ comment.author.username }} profile pic"
-                 style="width: 100px">
+                 style="height: 100px;
+                        width: 100px;
+                        object-fit: cover;
+                        object-position: top;">
             <div class="media-body">
                 <h5 class="mt-0">{{ comment.author.username }}</h5>
                 <p>{{ comment.content }}</p>
