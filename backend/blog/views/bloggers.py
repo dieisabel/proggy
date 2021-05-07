@@ -13,4 +13,8 @@ class BloggersView(ListView):
     context_object_name = 'bloggers'
 
     def get_queryset(self):
-        return Group.objects.get(name='blogger').user_set.all()
+        group_name = 'blogger'
+        if not Group.objects.filter(name=group_name).exists():
+            Group.objects.create(name=group_name)
+        return Group.objects.get(name=group_name).user_set.all()
+
