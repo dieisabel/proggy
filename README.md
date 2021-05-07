@@ -58,4 +58,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License 
 
-For now there is no license for this project
+This project is licensed under the terms of the MIT license.
