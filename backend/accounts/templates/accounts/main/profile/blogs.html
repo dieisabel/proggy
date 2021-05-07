@@ -7,12 +7,12 @@
         <ul class="nav nav-pills nav-fill card-header-pills">
             <li class="nav-item">
                 <a class="nav-link text-dark"
-                   href="{% url 'accounts:profile:bio' object_list.first.author.username %}">Bio
+                   href="{% url 'accounts:profile:bio' object.username %}">Bio
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active bg-dark"
-                   href="{% url 'accounts:profile:blogs' object_list.first.author.username %}">
+                   href="{% url 'accounts:profile:blogs' object.username %}">
                     Blogs
                 </a>
             </li>

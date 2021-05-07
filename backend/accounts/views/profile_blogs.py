@@ -4,18 +4,17 @@ __all__ = ['ProfileBlogsView']
 from django.views.generic import View
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth.models import Group
 
 from blog.models import Post
 from utils import has_group
 
 
 class ProfileBlogsView(View):
-    model = Post
 
     def get(self, request, username):
         user = self.get_user(username)
         context = {}
+        context.update({'object': user})
         if has_group(user, 'blogger'):
             posts = self.get_posts(username)
             context.update({'object_list': posts})
@@ -23,7 +22,6 @@ class ProfileBlogsView(View):
                 request,
                 'accounts/main/profile/blogs.html',
                 context)
-        context.update({'object': user})
         return render(
             request,
             'accounts/main/profile/not_blogger.html',
