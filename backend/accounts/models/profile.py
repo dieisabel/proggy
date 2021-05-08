@@ -4,8 +4,6 @@ __all__ = ['Profile']
 from django.db import models
 from django.contrib.auth.models import User
 
-from utils import resize_image
-
 
 class Profile(models.Model):
 
@@ -39,8 +37,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
-
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        super().save()
-        resize_image(self.image.path, 700, 700)
